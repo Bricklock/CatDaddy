@@ -1,20 +1,20 @@
 #: import Window kivy.core.window.Window
-
+#:import Snackbar kivymd.uix.snackbar.Snackbar
 WindowManager:
-#	StartupWindow:
+	StartupWindow:
 	MainWindow:
 	RatingWindow:
 
-# <StartupWindow>:
-# 	name: "startupWindow"
+<StartupWindow>:
+	name: "startupWindow"
 
-# 	MDRaisedButton:
-# 		text: "Login"
-# 		pos_hint: {"center_x": .5, "center_y": .5}
-# 		size: (Window.width * .5, Window.height * .5)
-# 		on_release:
-# 			app.root.current = "mainWindow"
-# 			root.manager.transition.direction = "left"
+	MDRaisedButton:
+		text: "Login"
+		pos_hint: {"center_x": .5, "center_y": .5}
+		size: (Window.width * .5, Window.height * .5)
+		on_release:
+			app.root.current = "mainWindow"
+			root.manager.transition.direction = "left"
 
 
 <MainWindow>:
@@ -28,6 +28,7 @@ WindowManager:
 		on_release:
 			app.root.current = "ratingWindow"
 			root.manager.transition.direction = "left"
+			app.GetImage()
 
 	MDRaisedButton:
 		text: "Log Out"
@@ -37,23 +38,92 @@ WindowManager:
 
 <RatingWindow>:
 	name: "ratingWindow"
+	MDBoxLayout:
+		orientation: 'vertical'
+		MDRaisedButton:
+			text: "Go Back"
+			on_release:
+				app.root.current = "mainWindow"
+				root.manager.transition.direction = "right"
+		MDBoxLayout:
+			padding: [0,0,0,50]
+			orientation: 'vertical'
 
-	Image:
-		source: 'Pics/download.jpg'
-		size: self.texture_size
-	MDRaisedButton:
-		text: "Rate"
-		pos_hint: {"center_x": .5, "center_y": .5}
-		on_release:
-			app.GetImage()
+			Image:
+				id: initialImage
+				source: app.currentImage
+				size: self.texture_size
+				pos_hint: {"center_x": .5}
+				size_hint: .9, .9
+			RateSlider:
+			MDRaisedButton:
+				text: "Submit"
+				pos_hint: {"center_x": .5}
+				on_release:
+					Snackbar(text = "Submitted", duration = 1).show()
+					app.RateImage()			
+					initialImage.reload()		
+					#initialImage.parent.remove_widget(initialImage)
+					
 
-	MDRaisedButton:
-		text: "Go Back"
-		on_release:
-			app.root.current = "mainWindow"
-			root.manager.transition.direction = "right"
+		MDRaisedButton:
+			text: "Go Back"
+			on_release:
+				app.root.current = "mainWindow"
+				root.manager.transition.direction = "right"	
 
-
+<RateSlider>:
+	MDBoxLayout:
+		orientation: 'vertical'
+		size_hint: 0.75, None
+		# adaptive_height: False
+		# adaptive_size: False
+		# adaptive_width: False
+		
+		MDBoxLayout:
+			orientation: 'horizontal'
+			MDLabel:
+				text: "0"
+				halign: "center"
+			MDLabel:
+				text: "1"
+				halign: "center"
+			MDLabel:
+				text: "2"
+				halign: "center"
+			MDLabel:
+				text: "3"
+				halign: "center"
+			MDLabel:
+				text: "4"
+				halign: "center"
+			MDLabel:
+				text: "5"
+				halign: "center"
+			MDLabel:
+				text: "6"
+				halign: "center"
+			MDLabel:
+				text: "7"
+				halign: "center"
+			MDLabel:
+				text: "8"
+				halign: "center"
+			MDLabel:
+				text: "9"
+				halign: "center"
+			MDLabel:
+				text: "10"
+				halign: "center"
+		MDSlider:
+			size_hint_x: .975 	
+			pos_hint: {'center_x':.5}
+			min: 0
+			max: 10
+			value: 5
+			step: 1
+				
+	
 <BackButton>:
 	MDIconButton:
 		icon: 'arrow-left-thick'
