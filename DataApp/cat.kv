@@ -1,16 +1,61 @@
-#:kivy 1.0.9
+#: import Window kivy.core.window.Window
 
-<Controller>:
-    label_wid: my_custom_label
+WindowManager:
+#	StartupWindow:
+	MainWindow:
+	RatingWindow:
 
-    BoxLayout:
-        orientation: 'vertical'
-        padding: 20
+# <StartupWindow>:
+# 	name: "startupWindow"
 
-        Button:
-            text: 'My controller info is: ' + root.info
-            on_press: root.do_action()
+# 	MDRaisedButton:
+# 		text: "Login"
+# 		pos_hint: {"center_x": .5, "center_y": .5}
+# 		size: (Window.width * .5, Window.height * .5)
+# 		on_release:
+# 			app.root.current = "mainWindow"
+# 			root.manager.transition.direction = "left"
 
-        Label:
-            id: my_custom_label
-            text: 'My label before button press'
+
+<MainWindow>:
+	name: "mainWindow"
+
+	# MDBoxLayout:
+	MDRaisedButton:
+		text: "Rate Cats"
+		pos_hint: {"center_x": .5, "center_y": .5}
+		size: (Window.width * .5, Window.height * .5)
+		on_release:
+			app.root.current = "ratingWindow"
+			root.manager.transition.direction = "left"
+
+	MDRaisedButton:
+		text: "Log Out"
+		on_release:
+			app.root.current = "startupWindow"
+			root.manager.transition.direction = "right"
+
+<RatingWindow>:
+	name: "ratingWindow"
+
+	Image:
+		source: 'Pics/download.jpg'
+		size: self.texture_size
+	MDRaisedButton:
+		text: "Rate"
+		pos_hint: {"center_x": .5, "center_y": .5}
+		on_release:
+			app.GetImage()
+
+	MDRaisedButton:
+		text: "Go Back"
+		on_release:
+			app.root.current = "mainWindow"
+			root.manager.transition.direction = "right"
+
+
+<BackButton>:
+	MDIconButton:
+		icon: 'arrow-left-thick'
+		pos_hint: {'center_x':0.5,'center_y':0.1}
+		on_press: self.onBackBtn()
