@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Hind+Guntur:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="container" id="container">
+        <header>
+            <h1> Rate a Cat <img id='catIconPicture' class = "icon" src="assets/catLoveEyes.png" alt="Rate My Cat Logo: CatLoveEyesEmoji"></h1>
+        </header>
+            <div class="main">
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                    <p>Value: <span id="demo"></span></p>
+                  </div>
+            </div>
+        <footer>
+            <div class="toggles"> 
+                <p>toggle light-mode</p>
+                <label id = "LightModeToggle" class="switch">
+                    <input type="checkbox">
+                    <span class="toggle round"></span>
+                </label>
+            </div>
+            
+        </footer>
+    </div>    
+  <script src="scripts/main.js"></script>
+  <script src="scripts/slider.js"></script>
+  </body>
+  
+</html>

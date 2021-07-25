@@ -44,7 +44,6 @@ class MainApp(MDApp):
 		Image(source=self.currentImage, pos_hint = {"center_x": .5}, size_hint = (.9, .9))
 		self.rated.append(self.currentImage)
 
-
 class StartupWindow(Screen):
 	pass
 
@@ -60,4 +59,8 @@ class WindowManager(ScreenManager):
 class RateSlider(MDBoxLayout):
 	pass
 
+class TestPause():
+	def test():
+		pass
+	
 MainApp().run()
