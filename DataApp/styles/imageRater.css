@@ -1,0 +1,14 @@
+
+#ImageRater{
+    grid-area: catPic;
+    max-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+}
+
+#ImageRater img {
+    background: url(loading.gif) 50% no-repeat;
+    object-fit: contain;
+  }

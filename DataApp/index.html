@@ -9,18 +9,25 @@
     <link href="styles/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
+    <script src="scripts/imageRaterProcess.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <div class="container" id="container">
         <header>
             <h1> Rate a Cat <img id='catIconPicture' class = "icon" src="assets/catLoveEyes.png" alt="Rate My Cat Logo: CatLoveEyesEmoji"></h1>
         </header>
             <div class="main">
-                <div class="slidercontainer">
-                    <div id="sliderbar">
-                      <div></div>
-                      <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-                    </div>
-                    <p>Value: <span id="demo"></span></p>
+              <div id = ImageRater>
+                <div><input type="file" id="myFile" onChange="readFile(this)"></div>
+                <img id = "catImage" src="assets/catLoveEyes.png">                
+              </div>
+              <div class="slidercontainer">
+                  <div id="sliderbar">
+                    <div></div>
+                    <input type="range" min="0" max="10" value="5" step="0.1" class="slider" id="catRateSlider">
                   </div>
+                  <p>Value: <span id="sliderVal"></span></p>
+              </div>
+              
             </div>
         <footer>
             <div class="toggles"> 
@@ -35,6 +42,7 @@
     </div>    
   <script src="scripts/main.js"></script>
   <script src="scripts/slider.js"></script>
+ 
   </body>
   
 </html>

@@ -6,11 +6,10 @@
     "configurations": [
 
         {
-            "name": "Python: Current File",
-            "type": "python",
+            "name": "Launch index.html",
+            "type": "chrome",
             "request": "launch",
-            "program": "DataApp/main.py",
-            "console": "integratedTerminal"
+            "file": "${workspaceFolder}/DataApp/index.html"
         }
     ]
 }

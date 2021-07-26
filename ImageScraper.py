@@ -8,7 +8,7 @@ reddit = praw.Reddit(
 file = open('CatPicURLs.csv', 'a')
 key = 1
 
-for submission in reddit.subreddit('cats').new(limit=10):
+for submission in reddit.subreddit('cats').new(limit=50):
     url = submission.url
     if url.endswith(('.jpg', '.png', '.gif', '.jpeg')):
         file.write('\n{},{},None'.format(key, url))
