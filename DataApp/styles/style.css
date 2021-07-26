@@ -33,8 +33,8 @@ body {
 }
 
 .light-mode {
-    color: var(--colour-backgroud);
-    background-color: var(--colour-text);
+    --colour-text: var(--colour5);
+    --colour-backgroud: var(--colour1);
   }
 
 .container {
