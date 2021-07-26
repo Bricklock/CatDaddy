@@ -63,7 +63,7 @@ header {
     grid-area: main;
     display: grid;
     width: 1fr;
-    height: 1frh;
+    height: 1fr;
     grid-template-rows: 2fr 5fr 2fr;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas:

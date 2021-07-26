@@ -1,22 +1,37 @@
-.slidecontainer {
+.slidercontainer {
     width: 100%;    
     grid-area: slider;
     display: flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
+    position: relative;
+  }
+  #sliderbar div {
+    width: 100%;
+    height: 25px;
+    padding-inline: 25px;
+    background-color: var(--colour-text);
+    background-clip: content-box;
+    position: absolute;
+    align-items: center;
+    z-index: 1;
   }
   
+  #sliderbar{
+    width: 100%;
+    height: 40px;
+    display: grid;
+    align-items: center;
+    position: relative;
+  }
   .slider {
     -webkit-appearance: none;
     width: 100%;
     height: 40px;
-    margin: 25px;
-    background-color: var(--colour-text);
-    background-size: 50% 40px;
+    background: rgba(0,0,0,0);
     outline: none;
     opacity: 1;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+    z-index: 2;
   }
   
   .slider::-webkit-slider-thumb:hover {
