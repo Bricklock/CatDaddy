@@ -37,11 +37,7 @@
     -webkit-transition: .4s;
     transition: .4s;
   }
-  
-  input:checked + .toggle {
-    background-color: var(--colour-backgroud);
-  }
-  
+    
   input:hover + .toggle {
     box-shadow: 0 0 5px var(--colour-sc2);
   }

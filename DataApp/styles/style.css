@@ -24,17 +24,17 @@ body {
     --colour-sc2: #6e5126;
 
     --colour-text: var(--colour1);
-    --colour-backgroud: var(--colour5);
+    --colour-background: var(--colour5);
 
     color: var(--colour-text);
-    background-color: var(--colour-backgroud);
+    background-color: var(--colour-background);
 
     
 }
 
 .light-mode {
     --colour-text: var(--colour5);
-    --colour-backgroud: var(--colour1);
+    --colour-background: var(--colour1);
   }
 
 .container {
