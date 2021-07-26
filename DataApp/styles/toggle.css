@@ -4,6 +4,7 @@
     display: inline-block;
     width: 50px;
     height: 30px;
+    align-items: center;
   }
   
   /* Hide default HTML checkbox */
@@ -22,6 +23,7 @@
     right: 0;
     bottom: 0;
     background-color: var(--colour-text);
+    background-clip: content-box;
     -webkit-transition: .4s;
     transition: .4s;
   }
