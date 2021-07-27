@@ -1,5 +1,3 @@
-
-
 let myButton = document.querySelector('button');
 let myHeading = document.querySelector('h1');
 
@@ -8,7 +6,7 @@ document.querySelector("#catIconPicture").onclick = function() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  var checkbox = document.querySelector('input[type="checkbox"]');
+  var checkbox = document.querySelector('#LightModeToggle');
   var page = document.body;
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
@@ -20,3 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+
+function checkTheBox(colour) {
+  var colourCheckbox = document.querySelector('.colourCheckbox' + '.' + colour);
+  colourCheckbox.classList.toggle("checked")
+  console.log('colourCheckbox checked');
+}

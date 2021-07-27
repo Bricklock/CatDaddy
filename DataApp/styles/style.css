@@ -1,7 +1,8 @@
 @import "slider.css";
 @import "toggle.css";
+@import "button.css";
 @import "imageRater.css";
-
+@import "fileUpload.css";
 * {
     margin: 0;
     box-sizing: border-box;
@@ -11,8 +12,7 @@ body {
     /* Fonts */
     --title-size: 7vh;
     font-size: 16px;
-    font-family: 'Gochi Hand', cursive;
-    font-family: 'Hind Guntur', sans-serif;
+    font-family: 'Baloo Chettan 2', cursive;
 
     /* Colours */
     --colour1: #AFA9A9;
@@ -65,20 +65,27 @@ header {
     display: grid;
     width: 100%;
     height:  100%;
-    grid-template-rows: 0fr 5fr 2fr;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 60% 40%;
     grid-template-areas:
-        "....  info  ...."
-        ".... catPic ...."
-        ".... slider ....";
+        "catPic data"
 }
-
+.dataContainer{
+    grid-area: data;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: var(--title-size);
+}
 footer {
     grid-area: footer;
     background: var(--colour3);
     display: flex;
+    justify-content: space-between
 }
-
+footer #exportRatings{
+    width: 20%;
+    margin-right: 50px;
+}
 .toggles{
     display: grid;
     grid-template-rows: 1fr;
@@ -119,5 +126,5 @@ h1 {font-family: 'Gochi Hand', cursive;
 }
 
 p {
-    font-family: 'Hind Guntur', sans-serif;
+    font-family: 'Baloo Chettan 2', cursive;
 }

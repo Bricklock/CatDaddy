@@ -1,0 +1,110 @@
+.colourOptionsContainer {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 50px;
+    font-family: 'Baloo Chettan 2', cursive;
+    font-size: 24px;
+    font-weight:700;
+  }
+  .colourOptionsContainer .colourCheckbox {
+    position: relative;
+    overflow: hidden;
+    border: 0px;
+    width: 40%;
+    padding: 16px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 0px;
+    align-self: center;
+    color: var(--colour1);
+  }
+  .colourOptionsContainer .colourCheckbox:hover{
+    opacity: 0.7;
+    filter: box-shadow(0px 0px 0px var(--colour2));
+    
+    box-shadow: 0px 0px 0px var(--colour2);
+    }
+
+  .colourOptionsContainer .colourCheckbox.checked{    
+    box-shadow: 5px 5px 4px var(--colour2);
+  }
+  
+  /* Hide the browser's default checkbox */
+  .colourOptionsContainer input[type = checkbox] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);    
+}
+
+.colourOptionsContainer input{
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: 0px solid var(--input-border);
+    font-family: 'Baloo Chettan 2', cursive;
+    font-size: 24px;
+    font-weight:700;
+    color: var(--colour1);
+    padding: 0px;
+}
+.colourOptionsContainer input:focus {
+        outline: 0;
+   }
+   
+.black{
+    float: left;
+    background-color: #000000;
+}
+.colourOptionsContainer .colourCheckbox.black {
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.grey{
+    float: left;
+    background-color: #575757;
+}
+
+.white{
+    float: left;
+    background-color: #ffffff;
+}
+
+.ginger{
+    float: left;
+    background-color: #ec913b;
+}
+
+.brown{
+    float: left;
+    background-color: #3f2c1b;
+}
+
+.other.colourCheckbox{
+    float: left;
+    background-color: var(--colour-sc1);
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    border: 0px;
+    width: 40%;
+    padding: 16px 4px;
+}
+

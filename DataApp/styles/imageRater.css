@@ -1,14 +1,45 @@
+@import "colourOptions.css";
 
 #ImageRater{
     grid-area: catPic;
-    max-height: inherit;
-    display: flex;
+    display: grid;
     flex-direction: column;
     justify-self: center;
     align-self: center;
 }
 
-#ImageRater img {
+#catImage {
+    height:100fr;
     background: url(loading.gif) 50% no-repeat;
     object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
   }
+
+#submitOptions {
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 4fr 6fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "Not ." "Meme Submit";
+    gap: 16px ;
+}
+
+#submitOptions .button{
+    margin: 0;
+}
+.button#Meme {
+    grid-area: Meme;
+    background-color: var(--colour-sc2);
+    width: 100%;
+}
+
+.button#Submit {
+    grid-area: Submit;
+    width: 100%;
+}
+.button#notCat {
+    grid-area: Not;
+    background-color: #be2c2c;
+    width: 100%;
+}

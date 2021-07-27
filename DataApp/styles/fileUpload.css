@@ -1,0 +1,18 @@
+#uploadButton {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+#uploadButton input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
