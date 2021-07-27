@@ -82,16 +82,17 @@ document.addEventListener("keyup", function(event) {
       document.getElementById("Submit").click();
     }
   });
+
+imageType = '';
 function memeClicked(){
-    var imageType = 'meme';
+    imageType = 'meme';
     submitRating()
 }
 function notACatClicked(){
-    var imageType = 'notCat';
+    imageType = 'notCat';
     submitRating()
 }
 function submitRating(){
-    var imageType = '';
     if (imageType == ''){
         imageType = 'cat';
     }
