@@ -25,7 +25,6 @@ def catImageS(redditIn, nImages, filename='CatPicURLs.csv'):
     '''Adds a specified amount of cat picture URLs from Reddit
     to a named file; which would be created if it does not already exist.'''
     
-    count = 0
     oldSubmissions = []
     checkData = []
     if fileExistence(filename):
@@ -39,34 +38,16 @@ def catImageS(redditIn, nImages, filename='CatPicURLs.csv'):
             checkData.append([oldSubmissions[i][0], float(oldSubmissions[i][1])])
 
 
-    # Finds submissions in the 'hot' section of the 'cats' sub-reddit 
-    # and appends their URLs with an index key.
-    submissionData = []
-    for submission in redditIn.reddit.subreddit('cats').hot(limit=None):
-        url = submission.url
-        id = submission.id
-        timeCreated = submission.created
-        if count >= nImages:
-            break
-        elif url.endswith(('.jpg', '.png', '.gif', '.jpeg')) and not checkInFile(id, timeCreated, checkData):
-            submissionData.append([id, timeCreated, url])
-            count += 1
+    submissionData = getSubmissions(redditIn, nImages, checkData)
 
     if fileExistence(filename):
         submissionData.extend(oldSubmissions)
-        submissionSortedData = sorted(submissionData, key = lambda x: x[1])
-        with open(filename, "w") as updated_f:
-            updated_f.write("submissionID,timeCreatedUnix,url,rating")
-            for submission in submissionSortedData:
-                updated_f.write("\n{},{},{},None".format(submission[0], submission[1], submission[2]))
+    submissionSortedData = sorted(submissionData, key = lambda x: x[1])
+    with open(filename, "w") as f:
+        f.write("submissionID,timeCreatedUnix,url,rating")
+        for submission in submissionSortedData:
+            f.write("\n{},{},{},None".format(submission[0], submission[1], submission[2]))
         f.close()
-    else:
-        submissionSortedData = sorted(submissionData, key = lambda x: x[1])
-        with open(filename, "w") as f:
-            f.write("submissionID,timeCreatedUnix,url,rating")
-            for submission in submissionSortedData:
-                f.write("\n{},{},{},None".format(submission[0], submission[1], submission[2]))
-            f.close()
 
 #===========================================================================================
 # File functions #
@@ -100,5 +81,23 @@ def checkInFile(id, timeCreated, checkData):
 
 #===========================================================================================
 
+def getSubmissions(redditIn, nImages, checkData):
+    '''Gets reddit submission instances from the cats subreddit top week page.'''
+    submissionData = []
+    count = 0
+    for submission in redditIn.reddit.subreddit('cats').top("week", limit=None):
+        url = submission.url
+        id = submission.id
+        timeCreated = submission.created
+        if count >= nImages:
+            break
+        elif url.endswith(('.jpg', '.png', '.gif', '.jpeg')) and not checkInFile(id, timeCreated, checkData):
+            submissionData.append([id, timeCreated, url])
+            count += 1
+    return submissionData
+
+#===========================================================================================
+filename='CatPicURLs.csv'
 catsInstance = redditIn()
-catImageS(catsInstance, 200, filename='CatPicURLs.csv')
+catImageS(catsInstance, 2000, filename)
+#deleteFile(filename)
